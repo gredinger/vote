@@ -1,0 +1,22 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <p> {{ . }} </p>
+<form method=POST action="/login">
+<label for="username">Username: </label>
+<input type="text" id="username" name="username" /> <br />
+<label for="password">Password: </label>
+<input type="password" id="password" name="password" /> <br />
+<label for="totp">Auth Code: </label>
+<input type="text" id="totp" name="totp" /> <br />
+<input type="submit" name="logon" id="logon" value="Login"  />
+
+</form>
+
+</body>
+
+</html>

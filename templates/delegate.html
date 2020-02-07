@@ -1,0 +1,25 @@
+<html>
+
+<div id="error">{{if .Err}}
+    {{.Err}}
+    {{end}}</div>
+<form action="/delegate" method="POST">
+<label for="delegate">Delegate Username:
+    </label>    <input id="delegate" name="delegate" type="text"/>
+    <br />
+    <input type="hidden" name="delegate_trigger" value="true" />
+    <!-- Add in all the delegate categories here-->
+<input type="submit" value="Add Delegate" />
+</form>
+{{if .Voters}}
+<form action="/delegate" method="POST">
+    {{ range $v := .Voters }}
+    <input type="checkbox" name="remove_user" value="{{$v.Username}}"></input>{{$v.Username}} <br />
+    {{end}}
+    <input type="hidden" id="removal" name="removal" value="true" />
+    <input type="submit" value="Remove delegates" />
+</form>
+{{end}}
+<!-- Render all delegates and have link into their vote view -->
+
+</html>

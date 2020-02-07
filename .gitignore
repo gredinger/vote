@@ -1,0 +1,7 @@
+settings.ini
+*.exe
+*.ini
+dataloader/
+newdb/
+invite/
+assets/

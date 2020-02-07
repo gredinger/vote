@@ -1,0 +1,45 @@
+<html>
+    <head><title>Account Management</title></head>
+    <body>
+        <div>{{ .Err }}</div>
+        <form method="POST" action="/account">
+        <input type="hidden" value="pc" name="password_change" />
+        <label for="current_password">Current Password:</label>
+        <input type="password" name="current_password" id="current_password" />
+        <br />
+        <label for="new_password">New Password: </label>
+        <input type="password" name="new_password" id="new_password" /><br />
+        <input type="submit" value="Change Password" />
+        </form>
+        {{ if .UC }}
+        <form method="POST" action="/account">
+            <input type="hidden" value="ucc" name="username_change_code" />
+            <label for="verify_token">Username Change Token:</label>
+            <input type="text" name="verify_token" id="verify_token" /><br />
+            <input type="submit" value="Validate Username Change" />
+        </form>
+        {{ else }}
+        <form method="POST" action="/account">
+            <input type="hidden" value="uc" name="username_change" />
+            <label for="username">Update Username:</label>
+            <input type="text" name="username" id="username" /><br />
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name" /> <br />
+            <input type="submit" value="Update Username" />
+        </form>
+        {{ end }}
+        <form method="POST" action="/account">
+        <input type="checkbox" {{ if .Voter.Delegate }} checked="checked"  {{end}} name="delegate" value="delegate" /> Become Delegate
+        <input type="hidden" value="del" name="become_delegate" /> <br />
+        <input type="submit" value="Become Delegate" />
+        </form>
+        <form method="POST" action="/account">
+        <div>Request new token</div>
+        <input type="hidden" value="totp" name="update_token" />
+        <label for="address">Street Address</label>
+        <input type="text"  name="address" />
+        <br />
+        <input type="submit" value="Request Token" />
+        </form>
+    </body>
+    </html>

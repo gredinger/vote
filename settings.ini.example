@@ -1,0 +1,9 @@
+ListenAddr = :8085
+DBType     = postgresql
+DBUsername = root
+DBPassword = 
+DBName     = voter
+DBHost     = localhost
+DBPort = 26257
+SSL = false
+SessionSecret = SessionSecretChangeMe!
